@@ -148,6 +148,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 // Enter your template code here.
 const log = require('logToConsole'); 
 const sendPixel = require('sendPixel');
+const encodeUri = require('encodeUri');
 const encodeUriComponent = require('encodeUriComponent');
 const JSON = require('JSON');
 const Object = require('Object');
@@ -195,7 +196,7 @@ if (data.pixelType == 'conv'){
   paramType = "cid";
 }
 
-var dataUrl = "https://tags.srv.stackadapt.com/" + data.pixelType + "?" + paramType + "=" + data.pixelID + addCustomProperties(data.pixelType);
+var dataUrl = "https://tags.srv.stackadapt.com/" + encodeUri(data.pixelType) + "?" + paramType + "=" + encodeUriComponent(data.pixelID) + addCustomProperties(data.pixelType);
  
  
 
